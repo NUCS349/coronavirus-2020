@@ -50,6 +50,15 @@ For visualization, there is one script:
 - `exp/viz.py`: plots the trajectories of each country in a single
   plot over time.
 
+The given scripts are run from within the `exp` directory as follows:
+
+```
+cd exp
+python knn_raw.py
+python knn_diff.py
+python viz.py
+```
+
 Finally, once you're done either visualizing the data or doing some machine learning on it
 (or both), give a short write-up of what you did and how it worked. This assignment will
 not be graded harshly, at all. I encourage you to try it if you're interested!
