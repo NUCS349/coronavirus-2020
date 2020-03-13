@@ -1,4 +1,4 @@
-# Coronavirus 
+# Exploring Coronavirus data 
 
 This repository contains some basic set up for exploration of the JHU data regarding
 the Coronavirus pandemic of 2020.
