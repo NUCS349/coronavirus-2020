@@ -73,6 +73,8 @@ not be graded harshly, at all. I encourage you to try it if you're interested!
 Ideally, one should expand significantly on the code in this repository either through
 additional experiments on new tasks, thorough analysis and write-up of existing experiments,
 or interesting visualizations of the data combined with machine learning, or some 
-combination of all of these.
+combination of all of these. Feel free to pull in additional data, and to use the data
+sources included in this repo that are currently not in the experiments (the recovered csv, the death csv, the daily reports,
+and the situation reports).
 
 Thanks!
