@@ -39,6 +39,11 @@ using k-nearest neighbors. There are two variants of this experiment:
 - `exp/knn_diff.py`: Uses the difference between day to day in case numbers to
   to find the most similar country to the chosen one. It has the same hyperparameters
   as before.
+- `exp/knn_dist_diff.py`: This is time-series data so there may be delays between
+  different countries that the other two experiments won't capture. In this 
+  experiment, we take the difference between days, normalize it, and finally take
+  the histogram of the data. This produces a distribution across the differences (the spikes or drops in cases from day to day). We use this as a feature vector
+  to do k-nearest neighbor.
 
 One option is to explore the hyperparameters of these scripts. You can also use these
 scripts as a basis for performing other prediction tasks, such as trying to predict the
