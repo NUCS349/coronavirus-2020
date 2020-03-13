@@ -68,4 +68,11 @@ Finally, once you're done either visualizing the data or doing some machine lear
 (or both), give a write-up (at least 1 page) of what you did and how it worked. This assignment will
 not be graded harshly, at all. I encourage you to try it if you're interested!
 
+**NOTE: Simply running the code that is already in this repository is not enough for credit.**
+
+Ideally, one should expand significantly on the code in this repository either through
+additional experiments on new tasks, thorough analysis and write-up of existing experiments,
+or interesting visualizations of the data combined with machine learning, or some 
+combination of all of these.
+
 Thanks!
