@@ -76,7 +76,26 @@ combination of all of these. Feel free to pull in additional data, and to use th
 sources included in this repo that are currently not in the experiments (the recovered csv, the death csv, the daily reports,
 and the situation reports).
 
-Thanks!
+### Example
+
+One can fit an exponential model to data using polynomial 
+regression by applying a logarithmic transformation to 
+the data. This makes it linear along the axis that is 
+increasing exponentially. So one idea might be to take each
+country's trajectory and fit a line of best fit to it after
+applying a logarithmic transformation:
+
+```
+numpy.polyfit(x, numpy.log(y), 1)
+```
+
+Here `x` is time, `y` is number of cases (or number of new cases if using `np.diff`). Another transform one might do is to only fit the line after the first case has hit that
+country. Then, you may be able to cluster countries based on
+the model parameters, as well as extrapolate cases over
+time. The strategies that each country has applied to
+mitigate the outbreak (e.g. social distancing) may be
+apparent in these clusters or model parameters.
+
 
 
 ## Possible other data sources
