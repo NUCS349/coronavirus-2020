@@ -93,8 +93,8 @@ Here `x` is time, `y` is number of cases (or number of new cases if using `np.di
 country. Then, you may be able to cluster countries based on
 the model parameters, as well as extrapolate cases over
 time. The strategies that each country has applied to
-mitigate the outbreak (e.g. social distancing) may be
-apparent in these clusters or model parameters.
+mitigate the outbreak (e.g. social distancing, lockdown) may 
+be apparent in these clusters or model parameters.
 
 
 
