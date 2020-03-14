@@ -86,10 +86,10 @@ country's trajectory and fit a line of best fit to it after
 applying a logarithmic transformation:
 
 ```
-numpy.polyfit(x, numpy.log(y), 1)
+numpy.polyfit(x, numpy.log(y), degree)
 ```
 
-Here `x` is time, `y` is number of cases (or number of new cases if using `np.diff`). Another transform one might do is to only fit the line after the first case has hit that
+Here `x` is time, `y` is number of cases (or number of new cases if using `np.diff`), and `degree` is the degree of the polynomial used for fitting. Another transform one might do is to only fit the line after the first case has hit that
 country. Then, you may be able to cluster countries based on
 the model parameters, as well as extrapolate cases over
 time. The strategies that each country has applied to
