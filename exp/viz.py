@@ -17,6 +17,9 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 
+plt.style.use('fivethirtyeight')
+
+
 # ------------ HYPERPARAMETERS -------------
 BASE_PATH = '../COVID-19/csse_covid_19_data/'
 MIN_CASES = 1000
@@ -30,7 +33,23 @@ confirmed = data.load_csv_data(confirmed)
 features = []
 targets = []
 
-plt.figure(figsize=(10, 10))
+fig = plt.figure(figsize=(10, 10))
+ax = fig.add_subplot(111)
+cm = plt.get_cmap('Dark2')
+NUM_COLORS = 0
+LINE_STYLES = ['solid', 'dashed', 'dashdot', 'dotted']
+NUM_STYLES = len(LINE_STYLES)
+
+for val in np.unique(confirmed["Country/Region"]):
+    df = data.filter_by_attribute(
+        confirmed, "Country/Region", val)
+    cases, labels = data.get_cases_chronologically(df)
+    cases = cases.sum(axis=0)
+
+    if cases.sum() > MIN_CASES:
+        NUM_COLORS += 1
+
+ax.set_prop_cycle('color', [cm(i) for i in np.linspace(0, 1, NUM_COLORS)])
 legend = []
 
 for val in np.unique(confirmed["Country/Region"]):
@@ -40,12 +59,15 @@ for val in np.unique(confirmed["Country/Region"]):
     cases = cases.sum(axis=0)
 
     if cases.sum() > MIN_CASES:
-        plt.ylabel('# of Cases')
-        plt.xlabel("Time")
-        plt.plot(cases)
+        i = len(legend)
+        lines = ax.plot(cases, label=labels[0,1])
+        lines[0].set_linestyle(LINE_STYLES[i%NUM_STYLES])
         legend.append(labels[0, 1])
 
-plt.yscale('log')
-plt.legend(legend)
+ax.set_ylabel('# of Cases')
+ax.set_xlabel("Time")
+
+ax.set_yscale('log')
+ax.legend(legend, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4)
 plt.tight_layout()
 plt.savefig('results/cases_by_country.png')
