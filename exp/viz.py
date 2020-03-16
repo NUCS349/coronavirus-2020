@@ -35,7 +35,7 @@ targets = []
 
 fig = plt.figure(figsize=(12, 12))
 ax = fig.add_subplot(111)
-cm = plt.get_cmap('Dark2')
+cm = plt.get_cmap('jet')
 NUM_COLORS = 0
 LINE_STYLES = ['solid', 'dashed', 'dashdot', 'dotted']
 NUM_STYLES = len(LINE_STYLES)
@@ -49,8 +49,9 @@ for val in np.unique(confirmed["Country/Region"]):
     if cases.sum() > MIN_CASES:
         NUM_COLORS += 1
 
-ax.set_prop_cycle('color', [cm(i) for i in np.linspace(0, 1, NUM_COLORS)])
+colors = [cm(i) for i in np.linspace(0, 1, NUM_COLORS)]
 legend = []
+handles = []
 
 for val in np.unique(confirmed["Country/Region"]):
     df = data.filter_by_attribute(
@@ -61,13 +62,15 @@ for val in np.unique(confirmed["Country/Region"]):
     if cases.sum() > MIN_CASES:
         i = len(legend)
         lines = ax.plot(cases, label=labels[0,1])
+        handles.append(lines[0])
         lines[0].set_linestyle(LINE_STYLES[i%NUM_STYLES])
+        lines[0].set_color(colors[i])
         legend.append(labels[0, 1])
 
 ax.set_ylabel('# of confirmed cases')
 ax.set_xlabel("Time (days since Jan 22, 2020)")
 
 ax.set_yscale('log')
-ax.legend(legend, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4)
+ax.legend(handles, legend, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4)
 plt.tight_layout()
 plt.savefig('results/cases_by_country.png')
