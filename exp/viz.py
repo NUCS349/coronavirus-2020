@@ -65,7 +65,7 @@ for val in np.unique(confirmed["Country/Region"]):
         legend.append(labels[0, 1])
 
 ax.set_ylabel('# of confirmed cases')
-ax.set_xlabel("Time (days since Jan 22, 2020")
+ax.set_xlabel("Time (days since Jan 22, 2020)")
 
 ax.set_yscale('log')
 ax.legend(legend, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4)
