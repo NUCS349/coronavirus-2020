@@ -37,7 +37,7 @@ fig = plt.figure(figsize=(12, 12))
 ax = fig.add_subplot(111)
 cm = plt.get_cmap('jet')
 NUM_COLORS = 0
-LINE_STYLES = ['solid', 'dashed', 'dashdot', 'dotted']
+LINE_STYLES = ['solid', 'dashed', 'dotted']
 NUM_STYLES = len(LINE_STYLES)
 
 for val in np.unique(confirmed["Country/Region"]):
