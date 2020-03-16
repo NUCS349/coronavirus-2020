@@ -33,7 +33,7 @@ confirmed = data.load_csv_data(confirmed)
 features = []
 targets = []
 
-fig = plt.figure(figsize=(10, 10))
+fig = plt.figure(figsize=(12, 12))
 ax = fig.add_subplot(111)
 cm = plt.get_cmap('Dark2')
 NUM_COLORS = 0
@@ -64,8 +64,8 @@ for val in np.unique(confirmed["Country/Region"]):
         lines[0].set_linestyle(LINE_STYLES[i%NUM_STYLES])
         legend.append(labels[0, 1])
 
-ax.set_ylabel('# of Cases')
-ax.set_xlabel("Time")
+ax.set_ylabel('# of confirmed cases')
+ax.set_xlabel("Time (days since Jan 22, 2020")
 
 ax.set_yscale('log')
 ax.legend(legend, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, ncol=4)
